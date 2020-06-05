@@ -1,0 +1,1 @@
+That is a simple node project - It creates - Uploads,Aggregations,emails and a simple api chat.
