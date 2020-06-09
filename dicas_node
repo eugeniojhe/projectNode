@@ -9,6 +9,6 @@ Cria o arquivo package.json
 Criando as variaveis de ambiente. File variables.env 
 Para descobrir o string de conexão, para conectar pelo shel que sera mostrado algo como mongodb://127.0.0.1:27017. 
 #npm install dotenv //Instala a dependência que realiza o parse do arquivo de configação. 
-require ('dotenv').config({path:'arquivo de configuracao - Variavies de anbiente - variables.envd}) 
+require ('dotenv').config({path:'arquivo de configuracao - Variavies de ambiente - variables.envd}) 
 #npm install mongoose --save -> Instala a dependencia que permite conectar o MongoDb com a aplicação que esta sendo desenvolvida. 
  

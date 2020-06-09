@@ -1,7 +1,8 @@
 const app = require('./app');
 const mongoose = require('mongoose');
 require('dotenv').config({path:'variables.env'}); 
-mongoose.connect(process.env.DATABASE); 
+mongoose.set('useUnifiedTopology', true);
+mongoose.connect(process.env.DATABASE,{ useNewUrlParser: true }); 
 mongoose.Promise = global.Promise; 
 mongoose.connection.on('error',(error)=>{
     console.error('error Connection '+error.message); 
