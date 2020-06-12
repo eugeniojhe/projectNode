@@ -1,7 +1,8 @@
-const express = require('express'); 
+const express = require('express');
+  
 
 //Routes 
-const router = express.Router(); 
+/* const router = express.Router(); 
 router.get('/',(req, resp)=>{
     resp.send('Hello World. I am here, again'); 
 });
@@ -28,6 +29,14 @@ router.get('/post/:id',(req,res)=>{
 router.get('/post/:slug',(req,res)=>{
     let slug = req.params.slug;
     res.send('You selected post '+slug); 
-});
+}); */
 
+const router  = express.Router();
+router.get('/',(req,res)=>{
+    res.render('home',{
+        'name':'Eugenio',
+        'job':'Development',
+        'salary':'$5,000,00'
+    }); 
+});
 module.exports = router; 

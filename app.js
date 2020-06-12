@@ -1,5 +1,6 @@
 const express = require('express'); 
-
+const mustache = require('mustache-express');
+//console.log('mustache '+mustache);
 //Routes 
 /* const router = express.Router(); 
 router.get('/',(req, resp)=>{
@@ -15,5 +16,9 @@ app.use('/',router);
 //enviados via post. Esta informações
 //estão em formato json. 
 app.use(express.json());
+app.engine('mst',mustache());
+app.set('view engine','mst'); 
+app.set('views',__dirname + '/views'); 
+
 
 module.exports = app; 

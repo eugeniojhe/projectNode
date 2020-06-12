@@ -11,4 +11,7 @@ Para descobrir o string de conexão, para conectar pelo shel que sera mostrado a
 #npm install dotenv //Instala a dependência que realiza o parse do arquivo de configação. 
 require ('dotenv').config({path:'arquivo de configuracao - Variavies de ambiente - variables.envd}) 
 #npm install mongoose --save -> Instala a dependencia que permite conectar o MongoDb com a aplicação que esta sendo desenvolvida. 
+
+instalando o template mustach para express 
+#npm install mustache-express --save  
  
