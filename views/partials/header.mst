@@ -1,0 +1,17 @@
+<html>
+    <head>
+      {{#pageTitle}} {{! If }}
+      <title>{{pageTitle}}</title>
+      {{/pageTitle}}{{! end if}}
+      {{^pageTitle}}{{!else}}
+      <title>{{h.standardTitle}}</title>
+      {{/pageTitle}}{{!end else}}
+    </head>
+    <body>
+        <ul>
+            {{#h.menu}}
+            <li><a href="{{slug}}">{{name}}</a></li>
+            {{/h.menu}}
+        </ul>
+    </body>
+</html>

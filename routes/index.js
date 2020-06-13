@@ -32,11 +32,23 @@ router.get('/post/:slug',(req,res)=>{
 }); */
 
 const router  = express.Router();
+ 
 router.get('/',(req,res)=>{
-    res.render('home',{
-        'name':'Eugenio',
-        'job':'Development',
-        'salary':'$5,000,00'
-    }); 
+    let data = {
+       // pageTitle:'Titulo da pagina', 
+        name:req.query.name,
+        job:'Development',
+        'salary':'$5,000,00',
+        cars:[
+            {brand:'Ford',color:'green',price:'$10,000.00'},
+            {brand:'VW',color:'red',price:'$5,000.00'},
+            {brand:'hilux',color:'black',
+             price:'$25,000.00'}
+        ],
+        interests:['tecnology','Cars','People'],
+        test01:'<strong>Black text</strong>',
+        test02:'<strong>Black text</strong>',
+        show:true}
+    res.render('home',data); 
 });
 module.exports = router; 

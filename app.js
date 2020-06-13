@@ -8,15 +8,22 @@ router.get('/',(req, resp)=>{
 }) ;*/
 
 const router = require('./routes/index.js'); 
+const helpers = require('./helpers.js'); 
 
 //Settings 
 const app = express();
+app.use((req,res,next)=>{
+    res.locals.h = helpers; 
+    res.locals.test = 'Hi Eugenio - You are going very good  - Near to get a good salary - Believe you can'; 
+    next(); 
+});
 app.use('/',router);
 //json-> Permite acessar os dados 
 //enviados via post. Esta informações
 //estão em formato json. 
 app.use(express.json());
-app.engine('mst',mustache());
+//app.engine('mst',mustache());
+app.engine('mst',mustache(__dirname +'/views/partials','.mst')); 
 app.set('view engine','mst'); 
 app.set('views',__dirname + '/views'); 
 
