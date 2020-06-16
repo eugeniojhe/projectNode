@@ -2,6 +2,7 @@
 
 <h1>Page Home - Welcome</h1>
 <p>You are inside home </p>
+<p>You are logged as {{userInfo.name}} . Your name came from userMiddleware</p>
 <p><strong>Content of global var test => {{test}}</strong></p>
 {{#show}}
 <p>Your name is {{name}} and your salary is {{salary}} and your job is {{job}}</p>
