@@ -13,5 +13,7 @@ require ('dotenv').config({path:'arquivo de configuracao - Variavies de ambiente
 #npm install mongoose --save -> Instala a dependencia que permite conectar o MongoDb com a aplicação que esta sendo desenvolvida. 
 
 instalando o template mustach para express 
-#npm install mustache-express --save  
+#npm install mustache-express --save 
+
+#npm install cookie-parser express-session express-flash --save
  

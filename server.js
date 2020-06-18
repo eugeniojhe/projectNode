@@ -1,4 +1,3 @@
-const app = require('./app');
 const mongoose = require('mongoose');
 require('dotenv').config({path:'variables.env'}); 
 mongoose.set('useUnifiedTopology', true);
@@ -9,7 +8,9 @@ mongoose.connection.on('error',(error)=>{
 });
 
 //getting models
-require('./Models/Post'); 
+require('./Models/Post');
+
+const app = require('./app'); 
 
 app.set('port',process.env.PORT || 7777); 
 //app.set('port',7777);

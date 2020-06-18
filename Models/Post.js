@@ -12,7 +12,7 @@ const postSchema = new mongoose.Schema({
         type:String,
         trim:true        
     },
-    tags:[String]
+    tags:String
 });
 
 module.exports = mongoose.model('Post',postSchema); 

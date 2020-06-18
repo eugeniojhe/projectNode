@@ -13,5 +13,11 @@
             <li><a href="{{slug}}">{{name}}</a></li>
             {{/h.menu}}
         </ul>
+
+        {{#flashes}}
+            {{#success}}
+              <div><h1>{{.}}</h1></div>
+            {{/success}}
+        {{/flashes}}
     </body>
 </html>
