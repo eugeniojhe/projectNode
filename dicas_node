@@ -16,4 +16,6 @@ instalando o template mustach para express
 #npm install mustache-express --save 
 
 #npm install cookie-parser express-session express-flash --save
+
+#npm install slug --save {Install a dependencia para gereção de slugs}
  
