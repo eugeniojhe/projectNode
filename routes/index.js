@@ -12,4 +12,6 @@ router.post('/post/new',postController.newAction);
 
 router.get('/post/:slug/edit',postController.edit);  
 router.post('/post/:slug/edit',postController.editAction); 
+
+router.get('/post/:slug',postController.view);
 module.exports = router; 

@@ -1,11 +1,13 @@
 const mongoose = require('mongoose'); 
 const Post = mongoose.model('Post'); 
+const slug = require('slug'); 
 exports.new = (req,res) =>{
     res.render('postnew');
 }
 
 exports.newAction = async (req,res) => {
    //res.json(req.body); 
+   req.body.tags = req.body.tags.split(',').map(t=>t.trim());
    const post = new Post(req.body);
    try {
         await post.save();     
@@ -25,12 +27,27 @@ exports.edit =  async (req,res) =>{
 
 exports.editAction = async (req,res) =>
 {
-     const post = await Post.findOneAndUpdate({slug:req.params.slug},
-          req.body,
-          {
-               new:true,
-               runValidators:true, 
-          });
-          req.flash('success',"Post atualizado com sucesso"); 
-          res.redirect('/'); 
+     req.body.slug = slug(req.body.title, {lower:true});
+
+     req.body.tags = req.body.tags.split(',').map(t=>t.trim());
+
+     try{
+          const post = await Post.findOneAndUpdate({slug:req.params.slug},
+               req.body,
+               {
+                    new:true,
+                    runValidators:true, 
+               });
+     }catch(error){
+          req.flash('success','Post save success'); 
+          res.redirect('/post/'+req.params.slug+'edit'); 
+     };
+  
+     req.flash('success',"Post atualizado com sucesso"); 
+     res.redirect('/'); 
 };
+
+exports.view = async (req,res) =>{
+     const post = await Post.findOne({slug:req.params.slug});
+     res.render('view',{post});   
+}
