@@ -6,18 +6,28 @@
       {{^pageTitle}}{{!else}}
       <title>{{h.standardTitle}}</title>
       {{/pageTitle}}{{!end else}}
+      <link rel="stylesheet" href="/assets/css/style.css">
     </head>
     <body>
+      <header>
+        <h1>Cabecalho</h1>
         <ul>
             {{#h.menu}}
             <li><a href="{{slug}}">{{name}}</a></li>
             {{/h.menu}}
         </ul>
+      </header> 
 
         {{#flashes}}
             {{#success}}
-              <div><h1>{{.}}</h1></div>
+              <div class="warning"><h1>{{.}}</h1></div>
             {{/success}}
+            {{#info}}
+              <div class="warning"><h1>{{.}}</h1></div>
+            {{/info}}
+            {{#info}}
+              <div class="warning"><h1>{{.}}</h1></div>
+            {{/info}}
         {{/flashes}}
     </body>
 </html>

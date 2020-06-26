@@ -21,6 +21,9 @@ const app = express();
 //enviados via post. Esta informações
 //estão em formato json. 
 app.use(express.json());
+
+app.use(express.static(__dirname+'/public'));
+
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser(process.env.SECRET)); 
 app.use(session({

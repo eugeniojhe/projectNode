@@ -18,4 +18,9 @@ instalando o template mustach para express
 #npm install cookie-parser express-session express-flash --save
 
 #npm install slug --save {Install a dependencia para gereção de slugs}
+##npm install multer jimp uuid->
+     multer=> Biblioteca que gerencia uploads de 
+     imagens
+     jimp=> Gerencia o tamanho das imagens
+     uuid=> Gera hash para trabalhar os nomes das imagens(Mudar os nomes para não serem sobrepostos) 
  
