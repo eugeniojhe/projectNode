@@ -1,6 +1,10 @@
 {{>header}}
-<form class="" action="" method="POST">
-         
+<form enctype="multipart/form-data" action="" method="POST">
+        <label>
+            Image:
+            <input type="file" name="photo"/>
+        </label>  
+        <hr>        
         <label>Title:
             <input type="text"  name="title" value="" placeholder="Post's Title">
         </label>
