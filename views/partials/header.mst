@@ -20,14 +20,14 @@
 
         {{#flashes}}
             {{#success}}
-              <div class="warning"><h1>{{.}}</h1></div>
+              <div class="success"><h1>{{.}}</h1></div>
             {{/success}}
             {{#info}}
-              <div class="warning"><h1>{{.}}</h1></div>
+              <div class="info"><h1>{{.}}</h1></div>
             {{/info}}
-            {{#info}}
-              <div class="warning"><h1>{{.}}</h1></div>
-            {{/info}}
+            {{#error}}
+              <div class="error"><h1>{{.}}</h1></div>
+            {{/error}}
         {{/flashes}}
     </body>
 </html>

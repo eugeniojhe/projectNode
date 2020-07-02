@@ -12,11 +12,14 @@ exports.newAction = async (req,res) => {
    try {
         await post.save();     
    } catch (error) {
+        console.log(error.message); 
         req.flash('error','Error: '+error.message); 
         res.redirect('/post/new');
+        return; 
    }  
    req.flash('success','Post save success'); 
-   res.redirect('/'); 
+   res.redirect('/');
+   return;  
 };
 
 exports.edit =  async (req,res) =>{

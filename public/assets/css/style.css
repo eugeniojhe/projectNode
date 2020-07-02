@@ -33,12 +33,34 @@ ul {
 li {
     padding:10px;
 }
+
+.success {
+    border: 2px solid #008000;
+    background-color:#008000;
+    color:#FFF; 
+    padding:10px 20px; 
+    border-radius:5px; 
+}
 .warning {
-    border:2px solid #5555FF;
-    background-color:#0000FF;
+    border:2px solid #FFA500;
+    background-color:#FFA500;
     color:#FFF;
     padding:10px 20px;
     border-radius:5px;
+}
+.error {
+    border:2px solid #FF0000;
+    background-color: #FF0000; 
+    color:#FFF;
+    padding: 10px 20px; 
+    border-radius: 5px;
+}
+
+.info {
+    background-color: #FFFF00;
+    color:#FFF;
+    padding: 10px 20px; 
+    border-radius:5px; 
 }
 .post {
     width:300px;
