@@ -14,8 +14,7 @@ exports.newAction = async (req,res) => {
    } catch (error) {
         req.flash('error','Error: '+error.message); 
         res.redirect('/post/new');
-   }
-  
+   }  
    req.flash('success','Post save success'); 
    res.redirect('/'); 
 };
@@ -27,8 +26,9 @@ exports.edit =  async (req,res) =>{
 
 exports.editAction = async (req,res) =>
 {
-     req.body.slug = slug(req.body.title, {lower:true});
-
+     console.log("req "+req.params); 
+     //req.body.slug = slug(req.body.title, {lower:true});
+     req.body.slug = slug(req.params.title, {lower:true});
      req.body.tags = req.body.tags.split(',').map(t=>t.trim());
 
      try{
@@ -39,7 +39,7 @@ exports.editAction = async (req,res) =>
                     runValidators:true, 
                });
      }catch(error){
-          req.flash('success','Post save success'); 
+          req.flash('error','Post is not save'); 
           res.redirect('/post/'+req.params.slug+'edit'); 
      };
   

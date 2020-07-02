@@ -13,7 +13,10 @@ router.post('/post/new',
     imagesMiddleware.upload, 
     imagesMiddleware.resizePhoto, 
     postController.newAction);
-router.get('/post/:slug/edit',postController.edit);  
+router.get('/post/:slug/edit',
+    imagesMiddleware.upload, 
+    imagesMiddleware.resizePhoto,
+    postController.edit);  
 router.post('/post/:slug/edit',postController.editAction); 
 
 router.get('/post/:slug',postController.view);

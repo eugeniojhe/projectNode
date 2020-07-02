@@ -1,8 +1,16 @@
 {{> header}}
 <h2>Editar Post</h2> 
 
-<form class="form-horizontal" action="" method="POST">
-
+<form class="" enctype="multipart/form-data" action="" method="POST">
+        <div class="post">
+            <label>Photo
+                <input type="file" name="photo" value="/assets/media/{{post.photo}}">
+                {{#post.photo}}
+                <img src="/assets/media/{{post.photo}}" width="200"> 
+                {{/post.photo}}
+            </label>
+         </div> 
+        <hr>   
         <label>Title:
             <input type="text"  name="title" value="{{post.title}}" placeholder="Post's Title">
         </label>
