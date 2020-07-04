@@ -29,9 +29,11 @@ exports.edit =  async (req,res) =>{
 
 exports.editAction = async (req,res) =>
 {
-     console.log("req "+req.params); 
-     //req.body.slug = slug(req.body.title, {lower:true});
-     req.body.slug = slug(req.params.title, {lower:true});
+     console.dir(req); 
+     console.log('-----'); 
+     console.dir(res); 
+     req.body.slug = slug(req.body.title, {lower:true});
+   //  req.body.slug = slug(req.params.title, {lower:true});
      req.body.tags = req.body.tags.split(',').map(t=>t.trim());
 
      try{

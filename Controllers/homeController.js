@@ -11,11 +11,18 @@ exports.index = async (req,res)=>{
         tag:'',
 
     }; 
-    responseData.tag = req.query.t; 
-    const posts = await Post.find();
-    responseData.posts = posts;
+    responseData.tag = req.query.t;
+    const postFilter = (typeof responseData.tag != 'undefined')?{tags:responseData.tag}:{};
     
-    const tags = await Post.getTagList();
+    
+    const postsPromise = await Post.find(postFilter);
+    const tagsPromise = await Post.getTagList();
+    //const result = await Promise.all([postsPromise,tagsPromise]); 
+    const [posts,tags] = await Promise.all([postsPromise,tagsPromise]);
+
+    //const posts = result[0];
+    //const tags = result[1]; 
+    responseData.posts = posts;
    
     for (i in tags){
         if (tags[i]._id === responseData.tag){
