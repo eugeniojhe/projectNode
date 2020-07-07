@@ -1,3 +1,5 @@
+{{> header}}
+
 <h1>Please inter you crendentials</h1> 
 <form>
     <input type="text" name="name">

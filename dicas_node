@@ -23,4 +23,7 @@ instalando o template mustach para express
      imagens(MultPart - Formulários)
      jimp=> Gerencia o tamanho das imagens(Redimensionar imagens)
      uuid=> Gera hash para trabalhar os nomes das imagens(Mudar os nomes para não serem sobrepostos) 
+
+     #Biblioteca passport 
+     $npm install passport passport-local passport-local-mongoose  --save 
  

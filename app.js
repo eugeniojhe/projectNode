@@ -3,6 +3,8 @@ const mustache = require('mustache-express');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('express-flash'); 
+const passport  = require('passport'); 
+const localStrategy = require('passport-local').Strategy; 
 //console.log('mustache '+mustache);
 //Routes 
 /* const router = express.Router(); 
@@ -40,7 +42,12 @@ app.use((req,res,next)=>{
     next(); 
 });
 
-
+app.use(passport.initialize());
+app.use(passport.session()); 
+const User = require('./models/User'); 
+//passport.user(new localStrategy(User.authenticate())); 
+passport.serializerUser(User.serializerUser()); 
+//passport.deserializerUser(User.deserializerUser()); 
 
 app.use('/',router);
 app.use(errorHandler.notFound); 
