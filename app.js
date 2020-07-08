@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('express-flash'); 
 const passport  = require('passport'); 
-const localStrategy = require('passport-local').Strategy; 
+const   LocalStrategy = require('passport-local').Strategy; 
 //console.log('mustache '+mustache);
 //Routes 
 /* const router = express.Router(); 
@@ -34,20 +34,21 @@ app.use(session({
     saveUninitialized:false
 }));
 app.use(flash());
-
+ 
 app.use((req,res,next)=>{
     res.locals.h = helpers; 
     res.locals.test = 'Hi Eugenio - You are going very good  - Near to get a good salary - Believe you can'; 
     res.locals.flashes = req.flash();
+    res.locals.user = req.user; 
     next(); 
 });
 
 app.use(passport.initialize());
 app.use(passport.session()); 
-const User = require('./models/User'); 
-//passport.user(new localStrategy(User.authenticate())); 
-passport.serializerUser(User.serializerUser()); 
-//passport.deserializerUser(User.deserializerUser()); 
+const User = require('./Models/User'); 
+passport.use(new LocalStrategy(User.authenticate())); 
+passport.serializeUser(User.serializeUser()); 
+passport.deserializeUser(User.deserializeUser()); 
 
 app.use('/',router);
 app.use(errorHandler.notFound); 
