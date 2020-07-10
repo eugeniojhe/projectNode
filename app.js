@@ -35,16 +35,19 @@ app.use(session({
 }));
 app.use(flash());
  
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use((req,res,next)=>{
     res.locals.h = helpers; 
     res.locals.test = 'Hi Eugenio - You are going very good  - Near to get a good salary - Believe you can'; 
-    res.locals.flashes = req.flash();
+    res.locals.flashes = req.flash();     
     res.locals.user = req.user; 
     next(); 
 });
 
-app.use(passport.initialize());
-app.use(passport.session()); 
+
+
 const User = require('./Models/User'); 
 passport.use(new LocalStrategy(User.authenticate())); 
 passport.serializeUser(User.serializeUser()); 

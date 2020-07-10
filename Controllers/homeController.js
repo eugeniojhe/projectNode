@@ -11,7 +11,8 @@ exports.index = async (req,res)=>{
         tag:'',
 
     }; 
-    responseData.tag = req.query.t;
+
+     responseData.tag = req.query.t;
     const postFilter = (typeof responseData.tag != 'undefined')?{tags:responseData.tag}:{};
     
     
