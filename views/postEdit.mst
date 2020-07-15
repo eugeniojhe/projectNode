@@ -25,7 +25,8 @@
             </textarea>
         </label>
         <hr>
-        <label></label>
-            <input type="submit" class="" value="Confirm">  
+        <label>
+            <input type="submit" class="" value="Confirm">
+        </label>  
                 
     </form>

@@ -4,7 +4,7 @@ const userController = require('../controllers/userController');
 const postController = require ('../controllers/postController'); 
 const imagesMiddleware = require('../middlewares/imagesMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware'); 
-const { route } = require('../app');
+//const { route } = require('../app');
 
 const router = express.Router(); 
 router.get('/',homeController.index); 
@@ -24,7 +24,8 @@ router.get('/post/:slug/edit',
     imagesMiddleware.upload, 
     imagesMiddleware.resizePhoto,
     postController.edit);  
-router.post('/post/:slug/edit',postController.editAction); 
+router.post('/post/:slug/edit',authMiddleware.isLogged,postController.editAction); 
 
 router.get('/post/:slug',postController.view);
 module.exports = router; 
+console.log('Last line of index.js'); 

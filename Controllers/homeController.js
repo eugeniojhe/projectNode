@@ -16,7 +16,11 @@ exports.index = async (req,res)=>{
     const postFilter = (typeof responseData.tag != 'undefined')?{tags:responseData.tag}:{};
     
     
-    const postsPromise = await Post.find(postFilter);
+    //Substituido pelo proximo metodo, criado em post para trazer dados de mais de uma tabela. As tabelas(Posts e Users); 
+   // const postsPromise = await Post.find(postFilter);
+
+   postsPromise = await Post.findPost(postFilter); 
+
     const tagsPromise = await Post.getTagList();
     //const result = await Promise.all([postsPromise,tagsPromise]); 
     const [posts,tags] = await Promise.all([postsPromise,tagsPromise]);

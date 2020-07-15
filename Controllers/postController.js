@@ -8,6 +8,7 @@ exports.new = (req,res) =>{
 exports.newAction = async (req,res) => {
    //res.json(req.body); 
    req.body.tags = req.body.tags.split(',').map(t=>t.trim());
+   req.body.author = req.user._id;
    const post = new Post(req.body);
    try {
         await post.save();     
@@ -29,9 +30,9 @@ exports.edit =  async (req,res) =>{
 
 exports.editAction = async (req,res) =>
 {
-     console.dir(req); 
-     console.log('-----'); 
-     console.dir(res); 
+     console.log('req'+req.body);
+     console.log('res'+res.params); 
+     req.body.title = "That is a title write by user"; 
      req.body.slug = slug(req.body.title, {lower:true});
    //  req.body.slug = slug(req.params.title, {lower:true});
      req.body.tags = req.body.tags.split(',').map(t=>t.trim());

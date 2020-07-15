@@ -39,11 +39,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req,res,next)=>{
-    res.locals.h = helpers; 
+    res.locals.h = {...helpers}; 
     res.locals.test = 'Hi Eugenio - You are going very good  - Near to get a good salary - Believe you can'; 
     res.locals.flashes = req.flash();     
-    res.locals.user = req.user; 
-    next(); 
+    res.locals.user = req.user;
+   /*  if (req.isAuthenticated){
+       res.locals.h.menus = res.locals.h.menu.filter(i=>(i.logged));
+    } else {
+        res.locals.h.menus = res.locals.h.menu.filter(i=>(i.guest)); 
+    } */
+    
 });
 
 
@@ -66,3 +71,4 @@ app.set('views',__dirname + '/views');
 
 
 module.exports = app; 
+console.log('Last line of app.js'); 
