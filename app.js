@@ -71,4 +71,3 @@ app.set('views',__dirname + '/views');
 
 
 module.exports = app; 
-console.log('Last line of app.js'); 

@@ -46,7 +46,7 @@ postSchema.statics.findPost = function(filters = {}){
             from:'users',
             let:{'author':'$author'},
             pipeline:[
-                {$smatch:{$expr:{$eq:['$$author','$_id']}}},
+                {$match:{$expr:{$eq:['$$author','$_id']}}},
                 {$limit:1}
             ],
             as:'author',

@@ -27,5 +27,4 @@ router.get('/post/:slug/edit',
 router.post('/post/:slug/edit',authMiddleware.isLogged,postController.editAction); 
 
 router.get('/post/:slug',postController.view);
-module.exports = router; 
-console.log('Last line of index.js'); 
+module.exports = router;  
