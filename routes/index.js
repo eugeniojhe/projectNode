@@ -4,7 +4,7 @@ const userController = require('../controllers/userController');
 const postController = require ('../controllers/postController'); 
 const imagesMiddleware = require('../middlewares/imagesMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware'); 
-//const { route } = require('../app');
+const { route } = require('../app');
 
 const router = express.Router(); 
 router.get('/',homeController.index); 
