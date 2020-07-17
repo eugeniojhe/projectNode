@@ -43,11 +43,11 @@ app.use((req,res,next)=>{
     res.locals.test = 'Hi Eugenio - You are going very good  - Near to get a good salary - Believe you can'; 
     res.locals.flashes = req.flash();     
     res.locals.user = req.user;
-   /*  if (req.isAuthenticated){
+     if (req.isAuthenticated){
        res.locals.h.menus = res.locals.h.menu.filter(i=>(i.logged));
     } else {
         res.locals.h.menus = res.locals.h.menu.filter(i=>(i.guest)); 
-    } */
+    } 
     
 });
 
