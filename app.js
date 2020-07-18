@@ -48,6 +48,7 @@ app.use((req,res,next)=>{
     } else {
         res.locals.h.menus = res.locals.h.menu.filter(i=>(i.guest)); 
     } 
+    next(); 
     
 });
 
