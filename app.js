@@ -48,8 +48,7 @@ app.use((req,res,next)=>{
     } else {
         res.locals.h.menus = res.locals.h.menu.filter(i=>(i.guest)); 
     } 
-    next(); 
-    
+    next();     
 });
 
 
@@ -68,7 +67,8 @@ app.use(errorHandler.notFound);
 //app.engine('mst',mustache());
 app.engine('mst',mustache(__dirname +'/views/partials','.mst')); 
 app.set('view engine','mst'); 
-app.set('views',__dirname + '/views'); 
+app.set('views',__dirname + '/views');
+  
 
 
 module.exports = app; 
