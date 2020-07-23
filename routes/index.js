@@ -12,7 +12,12 @@ router.get('/users/login',userController.login);
 router.post('/users/login',userController.loginAction); 
 router.get('/users/register',userController.register); 
 router.post('/users/register',userController.registerAction); 
-router.get('/users/logout',userController.logout); 
+router.get('/users/logout',userController.logout);
+//router.get('/profile',authMiddleware.isLogged,userController.profile); 
+router.get('/profile',userController.profile);
+router.post('/profile',userController.profileAction); 
+//router.post('/profile',authMiddleware.isLogged,userController.profileAction); 
+router.post('/profile/password',authMiddleware.isLogged,authMiddleware.changePassword);   
 router.get('/post/new',authMiddleware.isLogged,postController.new); 
 router.post('/post/new',
     authMiddleware.isLogged,

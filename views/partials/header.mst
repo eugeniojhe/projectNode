@@ -12,7 +12,7 @@
       <header>
         <h1>Cabecalho</h1>
         {{#user}}
-          User: {{user.name}} <a href="/users/logout">Logout</a> 
+          User: <a href="/profile">{{user.name}}</a>  
           {{/user}}  
           <hr> 
         <ul>

@@ -1,0 +1,30 @@
+{{> header}}
+<h1>Profile</h1>
+
+<form class="" enctype="" action="" method="POST">
+       
+        <label>Name:
+            <input type="text"  name="name" value="{{user.name}}" placeholder=" User's name">
+        </label>
+        <hr>
+        <label> Email:
+            <input type="email" class="" name="email" value="{{user.email}}" placeholder="user's email">
+         </label>
+        <hr>       
+        <label>
+            <input type="submit" class="" value="Confirm">
+        </label>  
+                
+    </form>
+<hr> 
+<form class="" enctype="" action="/profile/password" method="POST">
+    <label>New Passsord:
+        <input type="password" name="password" placeholder="New password"> 
+    </label>
+    <br> 
+    <label>Confirm Password:
+        <input type="password" name="password_confirm" placeholder="Confirm password">
+    </label> 
+    <br>
+    <input type="submit" value="Confirm"> 
+</form> 

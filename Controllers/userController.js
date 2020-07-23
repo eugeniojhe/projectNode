@@ -1,4 +1,5 @@
 const User = require('../Models/User'); 
+const { render } = require('../app');
 
 exports.login = (req,res)=>{
     res.render('login'); 
@@ -46,3 +47,24 @@ exports.logout = (req, res) => {
     res.redirect('/');
     return; 
 }; 
+
+exports.profile = (req,res) =>{
+   res.render('profile');
+}
+
+exports.profileAction = async (req,res) => {
+
+    try {
+        const user = await User.findOneAndUpdate(
+            {_id:req.user._id},
+            { name:req.body.name, email:req.body.email},
+            {new:true,runValidatores:true}
+        ) 
+    } catch (error) {
+        req.flash('error','Error saving profile'+error.message); 
+        res.redirect('/profile');
+        return; 
+    }
+    req.flash('success','Success saving user profile'); 
+    res.redirect('/profile'); 
+}

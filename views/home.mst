@@ -13,7 +13,7 @@ tag:{{tag}}
             <img src="/assets/media/{{photo}}"/>
         {{/photo}}
         <h3><a href="/post/{{slug}}">{{title}}</a></h3>
-        <small>Author:{{author}}</small>  
+        <small>Author:{{author.name}}</small>  
         <p>{{body}}</p>
         {{#user}}
             <a href="/post/{{slug}}/edit">Editar</a> 
