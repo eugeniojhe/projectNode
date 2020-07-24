@@ -1,0 +1,13 @@
+{{ > header}}
+<h1>Redifine Password</h1> 
+<form class="" enctype="" action="" method="POST">
+    <label>New Passsord:
+        <input type="password" name="password" placeholder="New password"> 
+    </label>
+    <br> 
+    <label>Confirm Password:
+        <input type="password" name="password_confirm" placeholder="Confirm password">
+    </label> 
+    <br>
+    <input type="submit" value="Confirm"> 
+</form> 

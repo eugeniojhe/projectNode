@@ -1,0 +1,12 @@
+{{> header}}
+
+<h1>Forgot Password</h1> 
+<form method="POST">
+    <label> Email:
+            <input type="email" name="email" placeholder="Enter your e-mail"> 
+    </label>
+    <br>
+    <label>
+        <input type="submit" value="Send">
+    </label> 
+</form> 
