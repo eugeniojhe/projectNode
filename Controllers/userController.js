@@ -1,6 +1,8 @@
 const User = require('../Models/User'); 
 const { render } = require('../app');
 const crypto = require('crypto'); 
+const mailHandler = require('../handlers/mailHandler'); 
+ 
 
 exports.login = (req,res)=>{
     res.render('login'); 
@@ -96,8 +98,19 @@ exports.forgotAction = async (req,res) =>{
     await user.save(); 
 
     const resetLink = `http://${req.headers.host}/users/reset/${user.resetPasswordToken}`; 
-    req.flash('success','We sent you an instruction  e-email '+resetLink); 
-    res.redirect('/users/login');      
+    const html = `Reseting e-mail with link:<br><a href="${resetLink}">Click here to reset your password</a>`;
+    const text = `Testando e-mail com link:${resetLink}`; 
+     mailHandler.send({
+       to:user.email,
+       subject:'Reset your password', 
+       html, 
+       text
+    });
+   
+
+    req.flash('success','See your e-mail, We sent you an instruction'); 
+    res.redirect('/users/login');
+    return;       
 }
 
 exports.forgotToken = async (req,res) =>{
@@ -136,6 +149,7 @@ exports.forgotTokenAction = async (req,res) => {
         await user.save(); 
         req.flash('success','Password changed success'); 
         res.redirect('/users/login'); 
+        return; 
     })
     
 }

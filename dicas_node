@@ -26,4 +26,9 @@ instalando o template mustach para express
 
      #Biblioteca passport 
      $npm install passport passport-local passport-local-mongoose  --save 
- 
+ Para enviar e-mails via note no servidor local, indicado user o serviço https://mailtrap.io
+ 1) Para isto será necessário realizar cadastro neste serviço. 
+ 2) Cria-se um handler com as configurações do nodemailer  
+
+ installar o nodemailer 
+ npm install nodemailer --save
